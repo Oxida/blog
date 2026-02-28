@@ -1,0 +1,101 @@
+/* 1. Base Setup & Fonts */
+:root {
+    --text-main: #242424;
+    --text-muted: #6b6b6b;
+    --bg-color: #ffffff;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-serif: "Charter", "Bitstream Charter", "Georgia", serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* 2. The 700px Container */
+.medium-post {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 40px 20px; /* Padding on sides for mobile screens */
+}
+
+/* 3. Header Styling (Sans-Serif) */
+.post-header {
+    font-family: var(--font-sans);
+    margin-bottom: 2rem;
+}
+
+.post-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+}
+
+.post-subtitle {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    margin-top: 0;
+    margin-bottom: 2rem;
+}
+
+/* 4. Author Meta Block */
+.author-meta {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 2rem;
+}
+
+.avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+}
+
+.meta-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.author-name {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.post-date {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* 5. The Content Body (Serif) */
+.post-content {
+    font-family: var(--font-serif);
+    font-size: 20px; /* Big, readable text! */
+    line-height: 1.6;
+}
+
+.post-content p {
+    margin-bottom: 1.5rem;
+}
+
+/* Medium-style Blockquotes */
+.post-content blockquote {
+    border-left: 3px solid var(--text-main);
+    margin: 2rem 0;
+    padding-left: 1.5rem;
+    font-style: italic;
+    font-size: 1.25rem; /* Slightly larger than body text */
+}
+
+/* Images inside Markdown */
+.post-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 2rem auto;
+}

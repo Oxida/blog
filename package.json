@@ -1,0 +1,35 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "Repository to hold blog content",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsx src/index.ts",
+    "watch:ts": "nodemon --watch src --watch templates --watch content -e ts,html,md,css --exec \"tsx src/index.ts\"",
+    "serve": "browser-sync start --server dist --files dist --port 3000 --no-open",
+    "dev": "concurrently \"npm run watch:ts\" \"npm run serve\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Oxida/blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Oxida/blog/issues"
+  },
+  "homepage": "https://github.com/Oxida/blog#readme",
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "marked": "^17.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.2",
+    "browser-sync": "^3.0.4",
+    "concurrently": "^9.2.1",
+    "nodemon": "^3.1.14",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}
