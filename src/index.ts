@@ -95,7 +95,7 @@ const postListHtml = allPosts
   .map(
     (post) => `
     <div style="margin-bottom: 2rem;">
-        <h2 style="margin-bottom: 0.5rem;"><a href="/${post.slug}/" style="color: inherit; text-decoration: none;">${post.title}</a></h2>
+        <h2 style="margin-bottom: 0.5rem;"><a href="/blog/${post.slug}/" style="color: inherit; text-decoration: none;">${post.title}</a></h2>
         <p style="color: #6b6b6b; margin-top: 0;">${post.description}</p>
         <small style="color: #6b6b6b;">${post.date} · ${post.readTime} min read</small>
     </div>

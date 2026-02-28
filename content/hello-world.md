@@ -3,7 +3,7 @@ title: "Building My Own TypeScript Blog"
 description: "Why I decided to build a static site generator from scratch instead of using WordPress."
 date: "2026-02-28"
 author: "Your Name"
-slug: "building-ts-blog"
+slug: "hello-world"
 image: "/images/cover.jpg"
 draft: false
 ---
