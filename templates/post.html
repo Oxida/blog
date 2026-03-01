@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
-    
+
     <!-- SEO Meta Tags -->
     <meta name="description" content="{{ description }}">
-    <link rel="canonical" href="https://oxida.github.io/blog/{{ slug }}/">
-    
+    <link rel="canonical" href="https://oxida.github.io/{{ slug }}/">
+
     <!-- Open Graph / Social Media -->
     <meta property="og:title" content="{{ title }}">
     <meta property="og:description" content="{{ description }}">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://oxida.github.io/blog/{{ slug }}/">
-    <meta property="og:image" content="https://oxida.github.io/blog{{ image }}">
-    
+    <meta property="og:url" content="https://oxida.github.io/{{ slug }}/">
+    <meta property="og:image" content="https://oxida.github.io/{{ image }}">
+
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "BlogPosting",
       "headline": "{{ title }}",
-      "image": ["https://oxida.github.io/blog{{ image }}"],
+      "image": ["https://oxida.github.io/{{ image }}"],
       "datePublished": "{{ date }}",
       "author":[{
           "@type": "Person",
@@ -31,18 +32,29 @@
     }
     </script>
 
-    <link rel="stylesheet" href="/blog/styles.css">
+    <link rel="stylesheet" href="/styles.css">
 </head>
+
 <body>
     <nav class="site-nav">
-        <a href="/blog/" class="logo">My Professional Blog</a>
+        <a href="/" class="logo" style="display: flex; align-items: center; gap: 8px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                </path>
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+            </svg>
+            AllThatJS
+        </a>
     </nav>
 
     <article class="medium-post">
         <header class="post-header">
             <h1 class="post-title">{{ title }}</h1>
             <h2 class="post-subtitle">{{ description }}</h2>
-            
+
             <div class="author-meta">
                 <div class="meta-info">
                     <span class="author-name">{{ author }}</span>
@@ -51,28 +63,21 @@
             </div>
         </header>
 
+        {{ coverImageHtml }}
+
         <div class="post-content">
             {{ content }}
         </div>
-        
+
         <!-- Giscus Comments Section -->
         <section class="comments" style="margin-top: 50px; border-top: 1px solid #eaeaea; padding-top: 30px;">
-            <script src="https://giscus.app/client.js"
-                data-repo="oxida/blog"
-                data-repo-id="R_kgDORbHaBA"
-                data-category="General"
-                data-category-id="DIC_kwDORbHaBM4C3Z4M"
-                data-mapping="pathname"
-                data-strict="0"
-                data-reactions-enabled="1"
-                data-emit-metadata="0"
-                data-input-position="bottom"
-                data-theme="preferred_color_scheme"
-                data-lang="en"
-                crossorigin="anonymous"
-                async>
-            </script>
+            <script src="https://giscus.app/client.js" data-repo="oxida/blog" data-repo-id="R_kgDORbHaBA"
+                data-category="General" data-category-id="DIC_kwDORbHaBM4C3Z4M" data-mapping="pathname" data-strict="0"
+                data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom"
+                data-theme="preferred_color_scheme" data-lang="en" crossorigin="anonymous" async>
+                </script>
         </section>
     </article>
 </body>
+
 </html>

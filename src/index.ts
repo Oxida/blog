@@ -8,7 +8,7 @@ const CONTENT_DIR = path.join(__dirname, "../content");
 const TEMPLATE_DIR = path.join(__dirname, "../templates");
 const PUBLIC_DIR = path.join(__dirname, "../public");
 const DIST_DIR = path.join(__dirname, "../dist");
-const SITE_URL = "https://oxida.github.io/blog";
+const SITE_URL = "https://oxida.github.io";
 
 // Utility: Calculate read time based on 200 words per minute
 function getReadTime(text: string): number {
@@ -65,6 +65,11 @@ for (const file of files) {
   const readTime = getReadTime(content);
   const slug = data.slug || file.replace(".md", "");
 
+  const imagePath = (data.image || "").replace(/^\//, "");
+  const coverImageHtml = imagePath
+    ? `<img src="/${imagePath}" alt="${data.title || "Cover Image"}" style="width: 100%; border-radius: 8px; margin-bottom: 2rem; object-fit: cover; max-height: 400px;" />`
+    : "";
+
   // Inject data into Post Template
   let postHtml = postTemplate
     .replace(/{{ title }}/g, data.title || "Untitled")
@@ -72,7 +77,8 @@ for (const file of files) {
     .replace(/{{ author }}/g, data.author || "Anonymous")
     .replace(/{{ date }}/g, data.date || "")
     .replace(/{{ readTime }}/g, readTime.toString())
-    .replace(/{{ image }}/g, data.image || "")
+    .replace(/{{ image }}/g, imagePath)
+    .replace(/{{ coverImageHtml }}/g, coverImageHtml)
     .replace(/{{ slug }}/g, slug)
     .replace(/{{ content }}/g, htmlContent);
 
@@ -95,7 +101,7 @@ const postListHtml = allPosts
   .map(
     (post) => `
     <div style="margin-bottom: 2rem;">
-        <h2 style="margin-bottom: 0.5rem;"><a href="/blog/${post.slug}/" style="color: inherit; text-decoration: none;">${post.title}</a></h2>
+        <h2 style="margin-bottom: 0.5rem;"><a href="/${post.slug}/" style="color: inherit; text-decoration: none;">${post.title}</a></h2>
         <p style="color: #6b6b6b; margin-top: 0;">${post.description}</p>
         <small style="color: #6b6b6b;">${post.date} · ${post.readTime} min read</small>
     </div>
